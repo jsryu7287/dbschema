@@ -1,0 +1,22 @@
+<html>
+<body>
+<script>
+
+        // 사용자 입력 받기
+        const num = parseInt(prompt("출력할 구구단 숫자를 입력하세요:"), 10);
+
+        if (!isNaN(num)) { // 숫자인지 확인
+            const ul = document.createElement("ul"); // <ul> 태그 생성
+            for (let i = 1; i <= 9; i++) {
+                const li = document.createElement("li"); // <li> 태그 생성
+                li.textContent = `${num} × ${i} = ${num * i}`;
+                ul.appendChild(li); // <ul>에 <li> 추가
+            }
+            document.body.appendChild(ul); // 결과를 화면에 표시
+        } else {
+            alert("올바른 숫자를 입력하세요.");
+        }
+        
+</script>
+</body>
+</html>

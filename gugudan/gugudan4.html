@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .gugudan-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .gugudan {
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            width: 150px;
+            background-color: #f8f8f8;
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            font-size: 16px;
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>2단부터 9단까지 구구단 출력</h2>
+    <button onclick="showGugudan()">출력</button>
+
+    <div id="result" class="gugudan-container"></div>
+
+    <script>
+        function showGugudan() {
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = ""; // 기존 내용 삭제
+
+            for (let num = 2; num <= 9; num++) {
+                const div = document.createElement("div");
+                div.classList.add("gugudan");
+
+                const title = document.createElement("h3");
+                title.textContent = `${num}단`;
+                div.appendChild(title);
+
+                const ul = document.createElement("ul");
+                for (let i = 1; i <= 9; i++) {
+                    const li = document.createElement("li");
+                    li.textContent = `${num} × ${i} = ${num * i}`;
+                    ul.appendChild(li);
+                }
+                div.appendChild(ul);
+                resultDiv.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+</html>

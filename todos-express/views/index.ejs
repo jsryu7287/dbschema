@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>📌 ToDo List</h1>
+    
+    <!-- ✅ 입력 폼 -->
+    <form action="/todos" method="POST">
+        <input type="text" name="title" placeholder="할 일을 입력하세요" required>
+        <button type="submit">추가</button>
+    </form>
+
+    <!-- ✅ ToDo 목록 -->
+    <ul>
+        <% todos.forEach(todo => { %>
+            <li class="<%= todo.completed ? 'completed' : '' %>">
+                <%= todo.title %>
+                <form action="/todos/<%= todo.id %>?_method=PUT" method="POST" style="display:inline;">
+                    <button type="submit">✔ 완료</button>
+                </form>
+                <form action="/todos/<%= todo.id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">❌ 삭제</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

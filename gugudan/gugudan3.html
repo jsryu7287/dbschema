@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>구구단 출력기</h2>
+    <input type="number" id="numberInput" placeholder="숫자를 입력하세요">
+    <button onclick="showGugudan()">출력</button>
+
+    <ul id="result"></ul>
+
+    <script>
+        function showGugudan() {
+            const num = parseInt(document.getElementById("numberInput").value, 10);
+            const resultUl = document.getElementById("result");
+            
+            // 기존 내용 삭제
+            resultUl.innerHTML = "";
+
+            if (!isNaN(num) && num > 0) {
+                for (let i = 1; i <= 9; i++) {
+                    const li = document.createElement("li");
+                    li.textContent = `${num} × ${i} = ${num * i}`;
+                    resultUl.appendChild(li);
+                }
+            } else {
+                alert("올바른 숫자를 입력하세요.");
+            }
+        }
+    </script>
+
+</body>
+</html>

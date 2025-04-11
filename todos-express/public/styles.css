@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
